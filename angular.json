@@ -8,6 +8,7 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
+          "skipTests": true,
           "standalone": false
         },
         "@schematics/angular:directive": {
@@ -105,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
