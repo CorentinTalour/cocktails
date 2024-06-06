@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Cocktail} from "../interfaces/cocktail.interface";
 
 @Component({
-  selector: 'app-cocktail-list',
-  templateUrl: './cocktail-list.component.html',
-  styleUrl: './cocktail-list.component.scss'
+  selector: 'app-cocktail-container',
+  templateUrl: './cocktail-container.component.html',
+  styleUrl: './cocktail-container.component.scss'
 })
-export class CocktailListComponent {
-  cocktails: Cocktail[] = [
+export class CocktailContainerComponent implements OnInit {
+  public cocktails: Cocktail[] = [
     {
       name: "Mojito",
       img:
@@ -29,7 +29,16 @@ export class CocktailListComponent {
       description:
         "The Mai Tai is a Polynesian-style cocktail that has a fruity tropical taste sweet and vibrant. The mixture of light and dark rum, orange curacao, orgeat syrup and lime juice has been a symbol of Tahitian culture ever since the drink was first created."
     }
+  ];
 
-  ]
+  public selectedCocktail: Cocktail;
 
+  public selectCocktail(index: number): void {
+    this.selectedCocktail = this.cocktails[index];
+  }
+
+
+  ngOnInit() {
+    this.selectedCocktail = this.cocktails[0];
+  }
 }
